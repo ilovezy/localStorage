@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+*{outline: none!important}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">localStorage by zxx</h2>
+    
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+var arrDisplay = [1, 2, 3, 4], 
+    girl = {
+        name: 'cc', 
+        age: 21
+    }
+if(window.localStorage){
+    localStorage.setItem('menuTitle', arrDisplay)
+    localStorage.setItem('girl',girl)
+}else{
+    Cookit.write('menuTitle', arrDisplay)
+}
+
+var strStoreDate = window.localStorage ?
+    localStorage.getItem('menuTitle') : Cookie.read('menuTitle')
+// 注意实际存储的都会被转化为 字符串, 所以如果需要使用的话都要转下格式先
+console.log(strStoreDate)
+console.log(typeof strStoreDate)
+// 注意先把字符串转为数组
+strStoreDate.split(',').forEach(function(display, index){
+    console.log(index + ': ' + display)
+})
+
+console.log(localStorage.girl + '  ' + typeof localStorage.girl)
+
+
+</script>
+</body>
+</html>

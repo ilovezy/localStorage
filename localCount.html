@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+*{outline: none!important}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center" id="count"></h2>
+    
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+// html5 本地存储只能存字符串
+
+var storage = window.localStorage;
+function showStorage(storage){
+ for(var i=0;i<storage.length;i++){
+  //key(i)获得相应的键，再用getItem()方法获得对应的值
+    // document.write(storage.key(i)+ " : " + storage.getItem(storage.key(i)) + "<br>");
+    if(!storage.getItem('pageLoadCount')){
+        storage.setItem('pageLoadCount', 0)
+    }
+    storage.pageLoadCount = parseInt(storage.getItem('pageLoadCount')) + 1
+    document.getElementById('count').innerHTML = storage.pageLoadCount;
+ }
+}
+showStorage(storage)
+
+
+
+
+</script>
+</body>
+</html>

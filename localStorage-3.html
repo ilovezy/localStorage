@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+*{outline: none!important}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center" id="count">在 console 的 Resources 里面看到</h2>
+    <p class="alert alert-success">localeStorage  and sessionStorage 使用方法基本一致</p>
+    <h3>localStorage</h3>
+<pre>
+window.localStorage
+    .getItem(key) 
+    .setItem(key, value) 
+    .removeItem(key) 
+    .clear()</pre>
+    <h3>sessionStorage</h3>
+<pre>
+window.sessionStorage
+    .getItem(key) 
+    .setItem(key, value) 
+    .removeItem(key) 
+    .clear()</pre>
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+'use strict'
+// localStorage 和 sessionStorge 方法基本相同，都是 object
+window.localStorage.clear()
+console.log(window.localStorage)
+
+window.sessionStorage.a = 'cc'
+sessionStorage.setItem('username', 'ccccc')
+console.log(sessionStorage)
+var username = sessionStorage.getItem('username')
+console.log(username)
+
+
+</script>
+</body>
+</html>

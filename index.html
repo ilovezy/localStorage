@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+*{outline: none!important}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">test localStorage</h2>
+    <button class="btn btn-info" id="btn">click to change localStorage</button>
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+if(window.localStorage){
+    console.log('this browser supports localStorage')
+    // alert('support localStorage')
+}else{
+    console.log('not support localStorage')
+    // alert('not support localStorage')
+}
+
+// 存储方法 直接给 window.localStorage 添加属性，对它增删改查
+console.log(localStorage)
+localStorage.girl = {
+    name: 'cc', age: 20
+}
+localStorage.sayHello = function(){
+    console.log('hello ')
+}
+localStorage.arr = ['1', '2', {'name': 'qq'}]
+
+// 即这个对象下存储的函数不能调用的，只能存储数据
+// localStorage.sayHello()
+
+// 方法 getItem(), setItem(), removeIten()
+console.log(localStorage.getItem('girl'))
+
+localStorage.removeItem('girl') // 注意是引用对象，所以下边的变化会直接影响最开始的console.log()
+localStorage.removeItem('a')
+console.log(localStorage)
+
+</script>
+</body>
+</html>

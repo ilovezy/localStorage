@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+*{outline: none!important}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">localStorage</h2>
+    
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+var storage = window.localStorage
+storage.girl = 'cc'
+function showStorage(storage){
+    for(var i = 0 ; i < storage.length; i++){
+        console.log(storage.key(i) + ' : ' + storage.getItem(storage.key(i)))
+    }
+}
+
+showStorage(storage) // 靠 arr 和 sayHello  是之前存储的
+
+
+</script>
+</body>
+</html>
