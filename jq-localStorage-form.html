@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+*{outline: none!important}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">HTML5 localStorage Example</h2>
+    <form class="form-horizontal">
+        <!-- <select class="form&#45;control" name="type" id="type"> -->
+        <!--     <option>Please select</option> -->
+        <!--     <option value="general">General</option> -->
+        <!--     <option value="sales">Sales</option> -->
+        <!--     <option value="support">Support</option> -->
+        <!-- </select> -->
+        username: <input type="text" class="form-control" name="username" id="username" value="" />
+        email: <input type="text" class="form-control" name="email" id="email" value="" />
+        message: <textarea class="form-control" name="message" style="resize: vertical" id="message"></textarea>
+        <br />
+        <input type="submit" class="btn btn-success" value="submit" />
+        <button class="btn btn-default" id="clear">clear</button>
+    </form>
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+$(function(){
+    if(!window.localStorage){
+        return 
+    }
+    // if(localStorage.type){
+    //     $('#type').find('option[' + localStorage.type + ']').attr('selected', true)
+    // }
+    if(localStorage.username){
+        $('#username').val(localStorage.username)
+    }
+    if(localStorage.email){
+        $('#email').val(localStorage.email)
+    }
+    if(localStorage.message){
+        $('#message').val(localStorage.message)
+    }
+     
+    // 表单值发生改变的时候，对应 localStorage 的值也变化
+    // $('input, select, textarea').change(function(){
+    //     $this = $(this)
+    //     localStorage[$this.attr('name')] = $this.val()
+    // })
+    $('#username').keyup(function(){
+        var usernameVal = $(this).val(), 
+            usernameName = $(this).attr('name')
+        console.log(usernameVal)
+        localStorage.setItem(usernameName, usernameVal)
+    })
+
+    // $("#clear").click(function(){
+    //     localStorage.clear()
+    // })
+    function clickToClear(elem, event){
+        elem.on(event, function(){
+            localStorage.clear()
+        })
+    }
+    clickToClear($('#clear'), 'click')
+    // $('form').submit(function(){
+    //     localStorage.clear()    
+    // }).change(function(){
+    //     console.log(localStorage)
+    // })
+})
+
+</script>
+</body>
+</html>

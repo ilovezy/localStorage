@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+*{outline: none!important}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center"></h2>
+    <p class="alert alert-info">sessionStorage在浏览器关闭时就会被销毁</p>
+    <p class="alert alert-success">localeStorage是持久的本地存储，除非主动清除数据，不然会一直存在</p>
+    <p class="well">所以关键还是看需求，如果需要长期保存，使用 localeStorage, 如果需要浏览器关闭就清除缓存，就是用sessionStorage，在很多网站的保存用户信息大概用的就是 localeStorage</p>
+    <button class="btn btn-info" id="setItem">存值</button>
+    <button class="btn btn-success" id="getItem">取值</button>
+    <button class="btn btn-info" id="removeItem">删除</button>
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+'use strict'
+// if(window.addEventListener){
+//     window.addEventListener('storage', handle_storage, false)
+// }else if(window.attachEvent){
+//     window.attachEvent('onstorage', handle_storage)
+// }
+//
+// function handle_storage(e){
+//     if(!e){
+//         e = window.event
+//     }
+// }
+
+// storage 事件对象具体属性如下：Property type, key String, oldValue Any, newValue Any, url/uri String
+
+function setItem(){
+    var user = {
+        name: 'Adam li', age: 25, country: 'China'
+    }
+    localStorage.setItem('userInfo', JSON.stringify(user))
+}
+
+function getItem(){
+    var data = JSON.parse(localStorage.getItem('userInfo'))
+    console.log('name: ' + data.name + ' age: ' + data.age + ' country: ' + data.home)
+}
+
+function removeItem(){
+    localStorage.removeItem('userInfo')
+    console.log(localStorage.getItem('userInfo'))
+}
+
+$('#setItem').click(function(){
+    setItem()
+})
+$('#getItem').click(function(){
+    getItem()
+})
+$('#removeItem').click(function(){
+    removeItem()
+})
+
+</script>
+</body>
+</html>

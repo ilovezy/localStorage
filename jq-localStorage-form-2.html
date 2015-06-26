@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            outline: none!important
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2 class="text-center">jquery localStorage form - 2</h2>
+        username:
+        <input type="text" class="form-control" name="username" id="username" />sexual:
+        <input type="radio" name="sexual" value="male" id="male" />男
+        <input type="radio" name="sexual" value="female" id="female" />女
+        <br />
+        <button class="btn btn-success" id="saveBtn">save</button>
+        <button class="btn btn-info" id="getBtn">get</button>
+        <button class="btn btn-warning" id="removeBtn">remove</button>
+        <button class="btn btn-default" id="clearBtn">clear</button>
+        <hr />
+        <input list="Country" class="form-control"  />
+        <datalist id="Country">
+            <option value="India"></option>
+            <option value="Italy"></option>
+            <option value="Iran"></option>
+            <option value="Israel"></option>
+            <option value="Indonesia"></option>
+        </datalist>
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        'use strict'
+        
+        // window.onstorage = function(event){
+        //     var status = {}
+        //     status.key = event.key
+        //     status.oldValue = event.oldValue
+        //     status.newValue = event.newValue
+        //     status.url = event.url
+        //     status.storage = event.storage
+        // }
+
+        var abb = {}
+        abb[123] = '8723'
+        window.onload = function(){
+            localStorage['a'] = abb[123]
+            console.log(localStorage.a)
+        }
+
+    </script>
+</body>
+
+</html>
